@@ -25,6 +25,7 @@ public class Pirncipal {
                            empleado1.costoHora+" | ");
         System.out.println("El valor total a pagar es: "+empleado1.calcularAPagar());
         System.out.println("El valor de los ingresos totales son: "+empleado1.calcularIngresos(0));
+        System.out.println("Los años trabajados totales son: "+empleado1.calcularYear(2022));
     }
 }
 

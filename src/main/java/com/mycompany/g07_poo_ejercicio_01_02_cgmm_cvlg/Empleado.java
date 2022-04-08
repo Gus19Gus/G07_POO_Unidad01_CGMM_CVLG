@@ -21,11 +21,14 @@ public class Empleado {
         return retorno;
     } 
 public int calcularYear(int currentYear){
-        var retorno =10000d;
-        if(this.anioingreso <= 2022){
-            retorno=this.calcularYear(1)*0.2;
-        }
-        return (int) retorno;
+      var retorno=10000;
+      if(this.anioingreso>=0&&this.anioingreso<=currentYear){
+          retorno=currentYear-anioingreso;
+      }else{
+          retorno=0;
+      }
+      return retorno;
+  
 }
 public double calcularIngresos(int calcularYear){
         var retorno=2022;
