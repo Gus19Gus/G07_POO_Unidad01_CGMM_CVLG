@@ -16,32 +16,14 @@ public class Empleado {
     public double calcularAPagar(){
         var retorno=1000d;
         if(this.horasTrabajadas>=0&&this.horasTrabajadas<=300){
-            retorno=this.horasTrabajadas*this.costoHora;
+            retorno=this.horasTrabajadas*this.costoHora+this.calcularHoraBonusExtra(horasTrabajadas)-this.calcularImpuestos(anioIngreso, anioIngreso, anioIngreso);
         }
         return retorno;
     }
-    /**public int calcularYear(int currentYear){
-        var retorno=10000;
-        if(this.anioingreso>=0&&this.anioingreso<=currentYear){
-             retorno=currentYear-anioingreso;
-         }else{
-             retorno=0;
-         }
-         return retorno;
-}       
-    public double calcularIngresos(int calcularYear){
-        var retorno=2022;
-        if(this.calcularYear(calcularYear)>=0 && this.calcularYear(calcularYear)<=2022){
-            retorno=(int) (this.calcularYear(calcularYear)*0.2);
-        return retorno;
-    }
-        return retorno; 
-}
-**/
     public double calcularIngreso(int anioActual){
         
         var sueldo = 1000d;
-        var edadEmpleado = 1000d;
+        var edadEmpleado = 1000;
         var multiplicacion1 = 1000d;
         var multiplicacion2 = 1000d;
         var suma = 1000d;
@@ -54,23 +36,32 @@ public class Empleado {
     } 
     public double calcularHoraBonusExtra(int maximoHorasTrabajadas){  
         var retorno = 1000d;
-        var multiplicacion3 = 1000d; 
         if(this.horasTrabajadas >= 0 && this.horasTrabajadas <= 150);
             retorno =(this.horasTrabajadas - maximoHorasTrabajadas);
-            multiplicacion3 = (this.costoHora * retorno);
-        return multiplicacion3;
+           retorno=(this.costoHora *2* retorno);
+        return 0;
     } 
-    public double calcularImpuestos(int limit1, int limit2, int limit3 ){    
-        var retorno=100d;
-        if(this.costoHora*horasTrabajadas >= 0 && this.costoHora*horasTrabajadas <= limit1){
-            if(this.costoHora*horasTrabajadas >= limit1 && this.costoHora*horasTrabajadas<= limit2)
-                retorno=this.costoHora*horasTrabajadas*0.05;
-            else
-                retorno=this.costoHora*horasTrabajadas*0.12;
+    public double calcularImpuestos(int limit1, int limit2, int limit3 ){
+            
+        var retorno=10000d;
+        double r;
+        r= this.costoHora*this.horasTrabajadas;
+        if(r>0 && r<limit1){
+            retorno=0;
         }else{
-             if(this.costoHora*horasTrabajadas>=limit2 && this.costoHora*horasTrabajadas<=limit3)
-                retorno=this.costoHora*horasTrabajadas*0.25;
+            if(r>= limit1 && r<limit2){
+                retorno=this.costoHora*this.horasTrabajadas*0.05;
+            }else{
+                if(r>=limit2 && r<=limit3){
+                    retorno=this.costoHora*this.horasTrabajadas*0.12;
+                }else{
+                    if(r>limit3){
+                        retorno=this.costoHora*this.horasTrabajadas*0.25;
+                    }
+                }
+                
+            }
         }
         return retorno;
-   }
+}
 }
